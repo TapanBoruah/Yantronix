@@ -10,6 +10,7 @@ export default defineConfig({
   ],
   resolve: {
     alias: {
+      dedupe:["three"],
       "@": path.resolve(__dirname, "src"),
     },
   },
