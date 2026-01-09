@@ -8,12 +8,12 @@ import Footer from "./components/footer/Footer";
 export default function App() {
   return (
     <BrowserRouter>
-      <Navbar/>
+      <Navbar />
       <Cursor />
       <Routes>
         <Route path="/" element={<Home />} />
       </Routes>
-      <Footer/>
+      <Footer />
     </BrowserRouter>
   );
 }

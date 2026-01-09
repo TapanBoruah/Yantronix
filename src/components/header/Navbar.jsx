@@ -1,6 +1,9 @@
+"use client";
+
 import { Link } from "react-router-dom";
-import { motion } from "framer-motion";
-import { Button } from "@/components/ui/button";
+import { motion, AnimatePresence } from "framer-motion";
+import { Menu, X } from "lucide-react";
+import { useState } from "react";
 
 const navItems = [
   { name: "Home", path: "/" },
@@ -11,9 +14,13 @@ const navItems = [
 ];
 
 export default function Navbar() {
+  const [open, setOpen] = useState(false);
+
   return (
     <header className="fixed top-0 left-0 z-50 w-full">
       <div className="mx-auto max-w-7xl px-6">
+        
+        {/* MAIN NAVBAR */}
         <motion.div
           initial={{ y: -20, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
@@ -32,7 +39,7 @@ export default function Navbar() {
             </span>
           </div>
 
-          <nav className="hidden md:flex items-center gap-9">
+          <nav className="hidden md:flex items-center mx-auto gap-9">
             {navItems.map((item) => (
               <motion.div
                 key={item.name}
@@ -42,8 +49,7 @@ export default function Navbar() {
               >
                 <Link
                   to={item.path}
-                  className="text-sm text-white/70 transition-colors
-                             group-hover:text-white"
+                  className="text-sm text-white/70 transition-colors group-hover:text-white"
                 >
                   {item.name}
                 </Link>
@@ -57,19 +63,54 @@ export default function Navbar() {
             ))}
           </nav>
 
-
-          <div className="pr-4">
-            <Button
-              variant="secondary"
-              className="rounded-xl bg-white text-black
-                         hover:bg-white/90
-                         shadow-[0_0_20px_rgba(255,255,255,0.25)]"
-            >
-              Join Us
-            </Button>
-          </div>
+          <button
+            className="md:hidden text-white pr-4"
+            onClick={() => setOpen(true)}
+          >
+            <Menu size={26} />
+          </button>
         </motion.div>
       </div>
+
+      <AnimatePresence>
+        {open && (
+          <>
+            <motion.aside
+              initial={{ x: "100%" }}
+              animate={{ x: "0%" }}
+              exit={{ x: "100%" }}
+              transition={{ duration: 0.3, ease: "easeInOut" }}
+              className="fixed top-0 right-0 h-full w-64 bg-black/90 backdrop-blur-xl 
+                         border-l border-white/10 shadow-xl p-6 z-80"
+            >
+              <button className="text-white mb-6" onClick={() => setOpen(false)}>
+                <X size={28} />
+              </button>
+
+              <nav className="flex flex-col space-y-6 text-white text-lg">
+                {navItems.map((item) => (
+                  <Link
+                    key={item.name}
+                    to={item.path}
+                    onClick={() => setOpen(false)}
+                    className="hover:text-cyan-400 transition"
+                  >
+                    {item.name}
+                  </Link>
+                ))}
+              </nav>
+            </motion.aside>
+
+            <motion.div
+              className="fixed inset-0 bg-black/40 backdrop-blur-sm z-70"
+              onClick={() => setOpen(false)}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+            />
+          </>
+        )}
+      </AnimatePresence>
     </header>
   );
 }

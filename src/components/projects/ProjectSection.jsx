@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { Card, CardContent } from "@/components/ui/card";
 import HologramCodeBackground from "../background/HoloGramCode";
+import { useRef, useState, useEffect } from "react";
 
 export default function ProjectsSection() {
   const projects = [
@@ -15,45 +16,58 @@ export default function ProjectsSection() {
 
   const looped = [...projects, ...projects];
 
+  const scrollRef = useRef(null);
+  const [stripWidth, setStripWidth] = useState(0);
+
+  useEffect(() => {
+    if (scrollRef.current) {
+      const width = scrollRef.current.scrollWidth / 2; 
+      setStripWidth(width);
+    }
+  }, []);
+
   return (
-    <section className="relative flex flex-col items-center gap-15 min-h-screen py-24  overflow-hidden">
-      
+    <section className="relative min-h-screen flex flex-col items-center py-24 overflow-hidden">
+
       <HologramCodeBackground />
 
-      <h2 className="text-center text-4xl font-bold text-cyan-400 mb-12 z-2">
+      <h2 className="text-center text-4xl sm:text-5xl font-bold text-pink-600 relative py-14 z-5">
         Our Projects
       </h2>
 
-      <div className="max-w-6xl overflow-hidden p-4 h-105 relative z-2">
+      <div className="w-full max-w-7xl overflow-hidden px-4 sm:px-6 h-auto sm:h-105 relative z-5">
+
         <motion.div
-          className="flex space-x-8 px-6"
-          animate={{ x: ["0%", "-50%"] }}
+          ref={scrollRef}
+          className="flex space-x-6 sm:space-x-8 p-4"
+          animate={{ x: [0, -stripWidth] }}
           transition={{
             repeat: Infinity,
             ease: "linear",
-            duration: 20,
+            duration: 10,
           }}
         >
           {looped.map((p, i) => (
             <Card
               key={i}
               className="
-                min-w-[320px] h-95
+                min-w-55 sm:min-w-75 lg:min-w-85
+                h-80 sm:h-90 lg:h-95
                 bg-black/40 backdrop-blur-xl
                 border border-cyan-300/20
                 shadow-[0_0_20px_rgba(0,255,255,0.15)]
                 hover:shadow-[0_0_40px_rgba(0,255,255,0.4)]
-                hover:scale-[1.07] hover:-rotate-1
+                hover:scale-[1.06] hover:-rotate-1
                 transition-all duration-300
               "
             >
-              <CardContent className="flex flex-col items-center p-6">
+              <CardContent className="flex flex-col items-center p-5 sm:p-6">
                 <img
                   src={p.img}
                   alt={p.title}
-                  className="w-full h-40 object-contain mb-4 drop-shadow-[0_0_25px_rgba(0,255,255,0.55)]"
+                  className="w-full h-28 sm:h-40 object-contain mb-4 drop-shadow-[0_0_25px_rgba(0,255,255,0.55)]"
                 />
-                <h3 className="text-cyan-300 text-lg font-semibold text-center">
+                <h3 className="text-cyan-300 text-base sm:text-lg font-semibold text-center">
                   {p.title}
                 </h3>
               </CardContent>
@@ -62,8 +76,8 @@ export default function ProjectsSection() {
         </motion.div>
       </div>
 
-      <div className="pointer-events-none absolute inset-y-0 left-0 w-40 bg-linear-to-r from-[#05070a] to-transparent z-3" />
-      <div className="pointer-events-none absolute inset-y-0 right-0 w-40 bg-linear-to-l from-[#05070a] to-transparent z-3" />
+      <div className="pointer-events-none absolute inset-y-0 left-0 w-24 sm:w-40 bg-linear-to-r from-[#05070a] to-transparent z-3" />
+      <div className="pointer-events-none absolute inset-y-0 right-0 w-24 sm:w-40 bg-linear-to-l from-[#05070a] to-transparent z-3" />
     </section>
   );
 }

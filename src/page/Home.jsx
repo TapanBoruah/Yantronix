@@ -1,6 +1,6 @@
 import React from "react";
 import CircuitBackground from "@/components/background/Background";
-import SplineModel from '@/components/spline/SplineModel';
+import Hero from "@/components/hero/Hero";
 import AboutSection from "@/components/about/About";
 import ProjectsSection from "@/components/projects/ProjectSection";
 
@@ -8,10 +8,12 @@ import ProjectsSection from "@/components/projects/ProjectSection";
 export default function Home() {
   return (
     <>
-    <CircuitBackground />
-    <SplineModel/>
-    <AboutSection/>
-    <ProjectsSection/>
-    </>
+      <CircuitBackground />
+    <section className="relative w-full h-full overflow-hidden">
+        <Hero/>
+        <AboutSection/>
+        <ProjectsSection/>
+    </section>
+    </>   
   );
 }
