@@ -32,7 +32,6 @@ export default function Navbar() {
             </span>
           </div>
 
-          {/* Links */}
           <nav className="hidden md:flex items-center gap-9">
             {navItems.map((item) => (
               <motion.div

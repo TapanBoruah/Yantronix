@@ -40,7 +40,6 @@ export default function CircuitBackground() {
       ctx.fillStyle = "#05070a";
       ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-      // Draw circuit lines
       ctx.strokeStyle = "rgba(0,255,200,0.15)";
       ctx.lineWidth = 1;
 
@@ -50,7 +49,6 @@ export default function CircuitBackground() {
         ctx.lineTo(l.to.x, l.to.y);
         ctx.stroke();
 
-        // Pulse
         const px =
           l.from.x + (l.to.x - l.from.x) * l.progress;
         const py =
@@ -78,7 +76,7 @@ export default function CircuitBackground() {
   return (
     <canvas
       ref={canvasRef}
-      className="fixed inset-0 -z-10"
+      className="fixed inset-0 -z-10 w-full h-screen"
     />
   );
 }

@@ -3,7 +3,7 @@ import Home from "./page/Home";
 import Cursor from "./components/Cursor";
 import React from "react";
 import Navbar from "./components/header/Navbar";
-import AboutSection from "./components/about/About";
+import Footer from "./components/footer/Footer";
 
 export default function App() {
   return (
@@ -12,8 +12,8 @@ export default function App() {
       <Cursor />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/about" element={<AboutSection/>} />
       </Routes>
+      <Footer/>
     </BrowserRouter>
   );
 }
