@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import { useState } from "react";
+import {useScrollNaviagte} from "@/hooks/useScrollNavigate";
 
 const navItems = [
   { name: "Home", path: "/" },
@@ -15,12 +16,13 @@ const navItems = [
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
+  const scrollTo = useScrollNavigate()
+
 
   return (
     <header className="fixed top-0 left-0 z-50 w-full">
       <div className="mx-auto max-w-7xl px-6">
         
-        {/* MAIN NAVBAR */}
         <motion.div
           initial={{ y: -20, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}

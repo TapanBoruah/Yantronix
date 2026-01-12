@@ -11,7 +11,7 @@ export default function Home() {
       <CircuitBackground />
     <section className="relative w-full h-full overflow-hidden">
         <Hero/>
-        <AboutSection/>
+        <AboutSection />
         <ProjectsSection/>
     </section>
     </>   
