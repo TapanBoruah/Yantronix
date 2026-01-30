@@ -12,7 +12,7 @@ const navItems = [
   { name: "Projects", type: "scroll", target: "projects" },
   { name: "Glossary", type: "route", target: "/glossary" },
   { name: "Team", type: "route", target: "/team" },
-  { name: "Contact", type: "scroll", target: "contact" },
+  { name: "Contact", type: "scroll", target: "footer" },
 ];
 
 
