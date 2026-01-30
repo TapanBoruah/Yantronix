@@ -22,9 +22,11 @@ export default function RoboticsPage() {
             <ComponentSection
               key={item.id}
               title={item.title}
-              category={item.category}
+              category={item.category}  
               theory={item.theory}
               working={item.working}
+              model={item.model}
+              scale={item.scale}
             />
           ))}
         </div>

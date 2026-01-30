@@ -3,6 +3,8 @@ export const roboticsComponents = [
     id: "mcu",
     title: "Microcontroller Unit",
     category: "Brain",
+    model: "/esp8266.glb",
+    scale: 0.6,
     theory:
       "A microcontroller unit (MCU) acts as the brain of the robot. It receives input signals from sensors, processes them using programmed logic, and generates output signals to control actuators and other peripherals.",
     working: [
@@ -14,59 +16,75 @@ export const roboticsComponents = [
     ],
   },
 
-  {
-    id: "actuators",
-    title: "Actuators",
-    category: "Motion",
-    theory:
-      "Actuators convert electrical energy into mechanical motion. They enable robots to move, rotate, grip, and lift objects.",
-    working: [
-      "Electrical power is applied to the actuator",
-      "Magnetic or electric field is generated",
-      "Mechanical torque or force is produced",
-      "Speed or position is controlled",
-    ],
-  },
 
   {
-    id: "sensors",
-    title: "Sensors",
-    category: "Perception",
-    theory:
-      "Sensors allow robots to sense their surroundings by detecting physical quantities such as distance, light, or temperature and converting them into electrical signals.",
-    working: [
-      "Physical quantity is detected",
-      "Signal is converted into electrical form",
-      "MCU reads sensor data",
-      "Robot reacts based on input",
-    ],
-  },
+  id: "electric-motor",
+  title: "Electric Motor",
+  category: "Motion",
+  model: "/electric_motor.glb",
+  scale: 2.5,
+  theory:
+    "An electric motor converts electrical energy into continuous rotational mechanical motion. It is widely used in robotics to drive wheels, fans, and mechanical systems.",
+  working: [
+    "Electrical power is supplied to the motor terminals",
+    "A magnetic field is generated inside the motor",
+    "Interaction between fields produces torque",
+    "The shaft begins rotating",
+    "Mechanical motion is transmitted to wheels or mechanisms",
+  ],
+},
 
-  {
-    id: "power",
-    title: "Power System",
-    category: "Energy",
-    theory:
-      "The power system supplies regulated voltage and current to all robot components, ensuring safe and stable operation.",
-    working: [
-      "Battery provides DC power",
-      "Voltage is regulated",
-      "Power is distributed to all modules",
-      "Protection prevents overload",
-    ],
-  },
+{
+  id: "ultrasonic-sensor",
+  title: "Ultrasonic Sensor",
+  category: "Perception",
+  model: "/ultrasonic.glb",   // optional (add when model is ready)
+  scale: 12,                 // adjust after viewing
+  theory:
+    "An ultrasonic sensor measures distance by emitting high-frequency sound waves and calculating the time taken for the echo to return after reflecting from an object. It is widely used in robotics for obstacle detection and distance measurement.",
+  working: [
+    "The transmitter emits an ultrasonic pulse (typically 40 kHz)",
+    "The sound wave travels through air and hits an object",
+    "The wave reflects back toward the sensor",
+    "The receiver detects the returning echo",
+    "The MCU calculates distance using time-of-flight",
+  ],
+},
 
-  {
-    id: "mechanical",
-    title: "Mechanical Structure",
-    category: "Structure",
-    theory:
-      "The mechanical structure forms the physical body of the robot, supporting components and enabling movement.",
-    working: [
-      "Motors apply torque to joints",
-      "Links transmit force",
-      "Joints define degrees of freedom",
-      "Frame maintains stability",
-    ],
-  },
+{
+  id: "rc-radio-transmitter",
+  title: "RC Radio Transmitter",
+  category: "Communication",
+  model: "/rc_controller.glb",   // 3D model of the remote controller
+  scale: 25,                     // adjust after preview
+  theory:
+    "An RC radio transmitter is a handheld device used to send control commands wirelessly to a robot or vehicle. It converts user inputs such as joystick movements and button presses into radio frequency signals that are received and interpreted by a receiver connected to the robot.",
+  working: [
+    "User moves joysticks or presses buttons on the transmitter",
+    "Input signals are processed by the transmitter’s internal circuitry",
+    "Control data is encoded into radio frequency signals",
+    "RF signals are transmitted wirelessly through an antenna",
+    "The receiver on the robot decodes the signals",
+    "The MCU executes actions based on received commands",
+  ],
+},
+
+
+{
+  id: "drone",
+  title: "Drone",
+  category: "Robotic System",
+  model: "/drone.glb",     // quadcopter 3D model
+  scale: 0.15,              // adjust after preview
+  theory:
+    "A drone, also known as an Unmanned Aerial Vehicle (UAV), is a flying robotic system that uses multiple motors and propellers to generate lift and maneuver in the air. Drones integrate sensors, a flight controller, communication modules, and power systems to achieve stable and controlled flight.",
+  working: [
+    "The battery supplies power to the flight controller and motors",
+    "The flight controller processes sensor data from gyroscopes and accelerometers",
+    "Control commands are received from a radio transmitter or onboard software",
+    "Motor speeds are adjusted independently to control lift and direction",
+    "Propellers generate thrust, allowing the drone to take off, hover, and move",
+    "Continuous feedback ensures stable and balanced flight",
+  ],
+},
 ];
