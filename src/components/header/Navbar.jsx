@@ -11,7 +11,7 @@ const navItems = [
   { name: "About", type: "scroll", target: "about" },
   { name: "Projects", type: "scroll", target: "projects" },
   { name: "Glossary", type: "route", target: "/glossary" },
-  { name: "Team", type: "scroll", target: "team" },
+  { name: "Team", type: "route", target: "/team" },
   { name: "Contact", type: "scroll", target: "contact" },
 ];
 
