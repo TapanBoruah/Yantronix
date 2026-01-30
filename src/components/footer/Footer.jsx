@@ -11,7 +11,7 @@ export default function Footer() {
   };
 
   return (
-    <footer className="relative w-full bg-[#05070a] text-gray-300 pt-16 pb-10 border-t border-cyan-400/10 overflow-hidden">
+    <footer id = "footer" className="relative w-full bg-[#05070a] text-gray-300 pt-16 pb-10 border-t border-cyan-400/10 overflow-hidden">
 
       {/* Top Glow */}
       <div className="absolute top-0 left-0 w-full h-2 bg-cyan-400/30 blur-[2px]" />
