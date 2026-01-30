@@ -1,28 +1,59 @@
 "use client";
 
-import { Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import { useState } from "react";
-import {useScrollNaviagte} from "@/hooks/useScrollNavigate";
+import { Button } from "../ui/button";
+import { useNavigate,useLocation } from "react-router-dom";
 
 const navItems = [
-  { name: "Home", path: "/" },
-  { name: "About", path: "/about" },
-  { name: "Projects", path: "/projects" },
-  { name: "Team", path: "/team" },
-  { name: "Contact", path: "/contact" },
+  { name: "Home", type: "scroll", target: "home" },
+  { name: "About", type: "scroll", target: "about" },
+  { name: "Projects", type: "scroll", target: "projects" },
+  { name: "Glossary", type: "route", target: "/glossary" },
+  { name: "Team", type: "scroll", target: "team" },
+  { name: "Contact", type: "scroll", target: "contact" },
 ];
+
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
-  const scrollTo = useScrollNavigate()
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  const handleNavigate = (item) => {
+  if(item.type === "route") {
+    navigate(item.target);
+    setOpen(false); 
+    return;
+  }
+  if (item.type === "scroll") {
+    if (location.pathname === "/") {
+      const section = document.getElementById(item.target);
+
+    if (section) {
+      section.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
+
+      window.history.pushState(null, "", `#${item.target}`);
+    }
+  }
+
+  else {
+      navigate("/", { state: { scrollTo: item.target } });
+  }
+
+  setOpen(false);
+  }
+};
 
 
   return (
     <header className="fixed top-0 left-0 z-50 w-full">
       <div className="mx-auto max-w-7xl px-6">
-        
+
         <motion.div
           initial={{ y: -20, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
@@ -32,6 +63,7 @@ export default function Navbar() {
                      bg-black/40 backdrop-blur-xl
                      shadow-white shadow-md"
         >
+
           <div className="flex items-center gap-3 pl-4">
             <div className="h-8 w-8 rounded-lg bg-white/10 flex items-center justify-center">
               🤖
@@ -49,12 +81,13 @@ export default function Navbar() {
                 transition={{ type: "spring", stiffness: 300 }}
                 className="relative group"
               >
-                <Link
-                  to={item.path}
-                  className="text-sm text-white/70 transition-colors group-hover:text-white"
+                <button
+                  onClick={() => handleNavigate(item)}
+                  className="text-sm text-white/70 bg-transparent
+                             hover:text-white transition-colors"
                 >
                   {item.name}
-                </Link>
+                </button>
 
                 <span
                   className="absolute left-0 -bottom-1 h-px w-0
@@ -65,15 +98,19 @@ export default function Navbar() {
             ))}
           </nav>
 
-          <button
-            className="md:hidden text-white pr-4"
+          {/* Mobile Menu Button */}
+          <Button
+            variant="ghost"
+            size="icon"
+            className="md:hidden text-white mr-3"
             onClick={() => setOpen(true)}
           >
             <Menu size={26} />
-          </button>
+          </Button>
         </motion.div>
       </div>
 
+      {/* Mobile Menu */}
       <AnimatePresence>
         {open && (
           <>
@@ -82,27 +119,32 @@ export default function Navbar() {
               animate={{ x: "0%" }}
               exit={{ x: "100%" }}
               transition={{ duration: 0.3, ease: "easeInOut" }}
-              className="fixed top-0 right-0 h-full w-64 bg-black/90 backdrop-blur-xl 
+              className="fixed top-0 right-0 h-full w-64 bg-black/90 backdrop-blur-xl
                          border-l border-white/10 shadow-xl p-6 z-80"
             >
-              <button className="text-white mb-6" onClick={() => setOpen(false)}>
+              <Button
+                variant="ghost"
+                size="icon"
+                className="text-white mb-6"
+                onClick={() => setOpen(false)}
+              >
                 <X size={28} />
-              </button>
+              </Button>
 
               <nav className="flex flex-col space-y-6 text-white text-lg">
                 {navItems.map((item) => (
-                  <Link
+                  <button
                     key={item.name}
-                    to={item.path}
-                    onClick={() => setOpen(false)}
-                    className="hover:text-cyan-400 transition"
+                    onClick={() => handleNavigate(item)}
+                    className="text-left hover:text-cyan-400 transition"
                   >
                     {item.name}
-                  </Link>
+                  </button>
                 ))}
               </nav>
             </motion.aside>
 
+            {/* Overlay */}
             <motion.div
               className="fixed inset-0 bg-black/40 backdrop-blur-sm z-70"
               onClick={() => setOpen(false)}

@@ -4,7 +4,7 @@ import Cursor from "./components/Cursor";
 import React from "react";
 import Navbar from "./components/header/Navbar";
 import Footer from "./components/footer/Footer";
-import Scene from "./components/three/Scene";
+import GlosseryPage from "./page/GlosseryPage";
 
 export default function App() {
   return (
@@ -13,6 +13,7 @@ export default function App() {
       <Cursor />
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/glossary" element={<GlosseryPage />}/>
       </Routes>
       <Footer />
     </BrowserRouter>
