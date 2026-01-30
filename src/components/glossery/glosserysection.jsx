@@ -8,10 +8,14 @@ export default function ComponentSection({
   category,
   theory,
   working,
+  model,
+  scale, 
 }) {
   return (
     <ComponentCard title={title} category={category}>
-      <Component3D label={title} />
+      {/* Render 3D ONLY if model exists */}
+      {model && <Component3D model={model} scale={scale}/>}
+
       <ComponentTheory text={theory} />
       <ComponentWorking points={working} />
     </ComponentCard>
