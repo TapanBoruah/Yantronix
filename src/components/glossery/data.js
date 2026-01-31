@@ -87,4 +87,39 @@ export const roboticsComponents = [
     "Continuous feedback ensures stable and balanced flight",
   ],
 },
+
+{
+  id: "dht22-sensor",
+  title: "DHT22 Temperature & Humidity Sensor",
+  category: "Perception",
+  model: "/dht22_temperature_sensor_module.glb", // your 3D model file
+  scale: 60,                              // adjust after preview
+  theory:
+    "The DHT22 is a digital temperature and humidity sensor that provides calibrated environmental data using a single-wire communication protocol. It is commonly used in robotics and IoT systems for monitoring ambient conditions such as temperature and relative humidity.",
+  working: [
+    "The sensor measures temperature using a thermistor",
+    "Humidity is measured using a capacitive humidity sensor",
+    "An internal ADC converts analog values into digital data",
+    "Sensor sends data serially through a single data pin",
+    "The MCU decodes the signal to obtain temperature and humidity values",
+  ],
+},
+
+{
+  id: "ir-sensor",
+  title: "Infrared (IR) Sensor",
+  category: "Perception",
+  model: "/ir.glb",        // confirmed file name
+  scale: 1.6,              // adjust after preview
+  theory:
+    "An infrared (IR) sensor detects objects and surface characteristics by emitting infrared light and measuring the reflected radiation. It is commonly used in robotics for obstacle detection, line following, and proximity sensing.",
+  working: [
+    "The IR LED emits infrared light toward the surface or object",
+    "The emitted light reflects back from nearby objects",
+    "A photodiode or phototransistor detects the reflected IR light",
+    "The sensor converts the received signal into an electrical output",
+    "The MCU interprets the signal to make control decisions",
+  ],
+},
+
 ];
