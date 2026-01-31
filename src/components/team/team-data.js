@@ -50,7 +50,7 @@ export const coreTeam = [
   {
     name: "Krish Prasad",
     role: "Web Coordinator",
-    image: "/team/krish.jpg",
+    image: "/team/krish.jpeg",
   },
 
   {
