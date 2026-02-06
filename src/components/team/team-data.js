@@ -8,7 +8,7 @@ export const facultyCoordinator = {
 export const president = {
   name: "Mr. Pintu Kumar Shah",
   role: "President",
-  image: "/team/president.jpg",
+  image: "/team/president.jpeg",
 }
 
 export const coreTeam = [
@@ -45,7 +45,7 @@ export const coreTeam = [
   {
     name: "Nitesh Kumar",
     role: "Hardware Lead",
-    image: "/team/nitesh.jpg",
+    image: "/team/nitesh.jpeg",
   },
   {
     name: "Krish Prasad",
@@ -66,12 +66,12 @@ export const coreTeam = [
   {
     name: "Vishal Raghuwanshi",
     role: "First Year Representative",
-    image: "/team/vishal.jpg",
+    image: "/team/vishal.jpeg",
   },
   {
     name: "Vaibhav Gupta",
     role: "Second Year Representative",
-    image: "/team/vaibhav.jpg",
+    image: "/team/vaibhav.jpeg",
   },
 ]
 
