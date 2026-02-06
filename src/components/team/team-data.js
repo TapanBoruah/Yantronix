@@ -2,7 +2,7 @@ export const facultyCoordinator = {
   name: "Dr. Manjula D Ghatak",
   role: "Faculty Coordinator",
   designation:"HoD,Mechanical Engineering",
-  image: "/team/faculty.jpg",
+  image: "/team/facultycoordinator.jpg",
 }
 
 export const president = {
