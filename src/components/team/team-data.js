@@ -15,17 +15,17 @@ export const coreTeam = [
   {
     name: "Tapan Boruah",
     role: "Vice President",
-    image: "/team/tapan.jpg",
+    image: "/team/tapan.jpeg",
   },
   {
     name: "Anshu Priya",
     role: "Finance Secretary",
-    image: "/team/anshu.jpg",
+    image: "/team/anshu.jpeg",
   },
   {
     name: "Akash Raj",
     role: "Technical Lead",
-    image: "/team/akash.jpg",
+    image: "/team/akash.jpeg",
   },
   {
     name: "Atul Kumar",
@@ -40,7 +40,7 @@ export const coreTeam = [
   {
     name: "Kombongappun Ering",
     role: "Editor-in-Chief",
-    image: "/team/kombong.jpg",
+    image: "/team/kombong.jpeg",
   },
   {
     name: "Nitesh Kumar",
@@ -56,7 +56,7 @@ export const coreTeam = [
   {
     name: "Siddhant Hendry",
     role: "Overall Student Representative",
-    image: "/team/siddhant.jpg",
+    image: "/team/siddhant.jpeg",
   },
   {
     name: "Rachana Lamba",
@@ -77,16 +77,16 @@ export const coreTeam = [
 
 export const members = [
   { name: "Ankit Shukla" ,
-    image:"",
+    image:"/members/ankit_2.jpeg",
   },
   {name: "Roshni Yadav",
-    image:"",
+    image:"/members/roshni.jpeg",
 },
   { name: "Anupam Gupta",
-    image:"" ,
+    image:"/members/anupam.jpeg" ,
 },
   { name: "Subhajit Das",
-    image:"" ,
+    image:"/members/subhajit.jpeg" ,
 },
   { name: "Dinkar Kumar Yadav",
     image:"/members/dinkar.jpeg" ,

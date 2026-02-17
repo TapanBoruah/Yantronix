@@ -10,6 +10,7 @@ const navItems = [
   { name: "Home", type: "scroll", target: "home" },
   { name: "About", type: "scroll", target: "about" },
   { name: "Projects", type: "scroll", target: "projects" },
+  { name: "Events", type: "scroll", target: "events" },
   { name: "Glossary", type: "route", target: "/glossary" },
   { name: "Team", type: "route", target: "/team" },
   { name: "Contact", type: "scroll", target: "footer" },
