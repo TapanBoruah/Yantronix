@@ -34,19 +34,19 @@ export default function EventsPreview() {
         </h2>
 
         {/* Marquee Container */}
-        <div className="w-full max-w-7xl overflow-hidden px-4 sm:px-6">
+        <div className="w-full max-w-4xl overflow-hidden px-4 sm:px-6">
           <motion.div
             ref={scrollRef}
             className="flex space-x-6 sm:space-x-8 p-4"
             initial={{ x: "100%" }}                 // start at right edge
             animate={{ x: `-${stripWidth}px` }}    // move fully left
             transition={{
-              duration: events.length * 10 || 16,   // ⬅️ slightly slower speed
+              duration: 100,   // ⬅️ slightly slower speed
               ease: "linear",
               repeat: Infinity,
             }}
           >
-            {events.map((event) => (
+            {[...events,...events].map((event) => (
               <Card
                 key={event.id}
                 onClick={() => navigate(`/events/${event.id}`)}
@@ -59,7 +59,7 @@ export default function EventsPreview() {
                   shadow-[0_0_20px_rgba(0,255,255,0.15)]
                   hover:shadow-[0_0_40px_rgba(0,255,255,0.4)]
                   hover:scale-[1.06]
-                  transition-all duration-300
+                  transition-all duration-100
                 "
               >
                 <CardContent className="flex flex-col items-center p-5">

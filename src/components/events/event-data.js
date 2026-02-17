@@ -3,7 +3,7 @@ export const events = [
     id: "robotics-workshop",
     title: "Robotics Workshop",
     cover: "/events/robotics-workshop/event_1_robo_1.jpeg", // first image as cover
-    date: "Feb 2025",
+    date: "Feb 2026",
     description: "Hands-on robotics training session.",
     photos: [
       "/events/robotics-workshop/event_1_robo_1.jpeg",
