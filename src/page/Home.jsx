@@ -5,6 +5,8 @@ import AboutSection from "@/components/about/About";
 import ProjectsSection from "@/components/projects/ProjectSection";
 import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
+import EventsPreview from "@/components/events/EventsPreview";
+
 
 export default function Home() {
   const location = useLocation();
@@ -37,6 +39,9 @@ export default function Home() {
           <ProjectsSection />
         </section>
 
+        <section id="events" className="min-h-screen">
+          <EventsPreview />
+        </section>
       </section>
     </>
   );
